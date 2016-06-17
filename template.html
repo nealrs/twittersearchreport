@@ -1,0 +1,59 @@
+<!doctype html>
+
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Devpost Twitter Report</title>
+    <meta name="description" content="Devpost Twitter Report: {{client}}">
+    <meta name="author" content="Devpost">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,400italic,500|Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="css/styles.css">-->
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+      body{
+        width:80%;margin:auto;
+        font-family: 'Roboto', sans-serif;
+        color: #111111;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto Slab', serif;
+      }
+
+      p {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      a {color: #0074D9;}
+      a:active, a:hover {color: #B10DC9;}
+      /*a:visited {color: #85144B;}*/
+
+      img {border-radius:4px;}
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <h2>Devpost Twitter Report: {{client}}</h2>
+
+    {% for tweet in data %}
+      <p>
+        <a href="http://twitter.com/{{tweet.user}}">@{{tweet.user}}</a> &middot; <a href="http://twitter.com/statuses/{{tweet.id}}">{{tweet.date}}</a> &middot; RTs: {{tweet.rt}}<br>
+        {{tweet.text}}
+      </p>
+    {% endfor %}
+
+
+    <!-- JaVAVAVAVAVa -->
+    <!--<script src="js/scripts.js"></script>-->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+  </body>
+  </html>
