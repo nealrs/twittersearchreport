@@ -8,47 +8,87 @@
     <meta name="description" content="Devpost Twitter Report: {{client}}">
     <meta name="author" content="Devpost">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,400italic,500|Roboto+Condensed' rel='stylesheet' type='text/css'>
-    <!--<link rel="stylesheet" href="css/styles.css">-->
-
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
     <style>
+
       body{
-        width:80%;margin:auto;
-        font-family: 'Roboto', sans-serif;
-        color: #111111;
+        margin: 1.5em auto;
+        font-family: "Helvetica Neue", sans-serif;
+        color: #575553;
+        max-width: 1000px;
+        padding: 0 1em;
       }
 
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Roboto Slab', serif;
+      h1 {
+        font-size: 1.75em;
+        color: #003e54;
+        font-weight: bold;
+        line-height: 1.4;
+        margin: 0 0 0.8em 0;
+      }
+
+      .tweet {
+        padding: 1em;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .devpost-tweet {
+        background-color: #f0f0f0;
       }
 
       p {
-        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        line-height: 1.6;
+        margin: 0 0 0.3em 0;
       }
 
-      a {color: #0074D9;}
-      a:active, a:hover {color: #B10DC9;}
-      /*a:visited {color: #85144B;}*/
+      p:last-of-type {
+        margin: 0;
+      }
 
-      img {border-radius:4px;}
+      span.divider-dot {
+        margin: 0 0.3em;
+        color: #999794;
+      }
+
+      .handle {
+        font-weight: bold;
+      }
+
+      .fa-retweet {
+        color: #999794;
+      }
+
+      a { color: #2d9eb2; text-decoration: none; }
+      a:active, a:hover { color: #207180; }
+
+      img { border-radius:4px; }
 
     </style>
+
+    <meta name="user-style-sheet" content="pdf.css">
 
   </head>
 
   <body>
 
-    <h2>Devpost Twitter Report: {{client}}</h2>
+    <h1>Devpost Twitter Report: {{client}}</h1>
 
     {% for tweet in data %}
-      <p>
-        <a href="http://twitter.com/{{tweet.user}}">@{{tweet.user}}</a> &middot; <a href="http://twitter.com/statuses/{{tweet.id}}">{{tweet.date}}</a> &middot; RTs: {{tweet.rt}}<br>
-        {{tweet.text}}
-      </p>
+
+    	{% if tweet.user != "devpost" %}
+      	<div class="tweet">
+      {% else %}
+        <div class="tweet devpost-tweet">
+  		{% endif %}
+        <p><a href="http://twitter.com/{{tweet.user}}" class="handle">@{{tweet.user}}</a> <span class="divider-dot">&middot;</span> <a href="http://twitter.com/statuses/{{tweet.id}}">{{tweet.date}}</a> <span class="divider-dot">&middot;</span> <i class="fa fa-retweet" aria-hidden="true"></i> {{tweet.rt}}</p>
+        <p>{{tweet.text}}</p>
+      </div>
     {% endfor %}
 
 

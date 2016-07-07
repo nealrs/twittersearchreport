@@ -7,6 +7,7 @@ import pdfkit
 from slugify import slugify
 from keys import *
 
+css = "pdf.css"
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 def toHTML(data, client):
 
@@ -14,11 +15,11 @@ def toHTML(data, client):
     jenv = Environment(loader=FileSystemLoader(THIS_DIR), trim_blocks=True)
     tmpl = jenv.get_template('template.html')
     out = tmpl.render(data=data, client=client)
-    with open(fn+'.html', "wb") as fh:
+    with open('reports/'+fn+'.html', "wb") as fh:
         fh.write(out.encode('utf-8'))
-    pdfkit.from_string(out, fn+'.pdf')
+    pdfkit.from_string(out, 'reports/'+fn+'.pdf', css=css)
 
-q = {"Lenovo Multi-Touch Multi-Hack": ['multitouch.devpost.com', 'j.mp/1QMGD4k', 'Multi-Touch Multi-Hack'], "Ford Smart Journey": ['#FordMxSmartJourney', 'j.mp/1T7uZCi', 'ford smart journey', 'fordsmartjourney.devpost.com'], "GE Predix": ['#IntelligentWorld','intelligentworld.devpost.com', 'j.mp/1SiGFrN'], "Apache Spark Makers Build": ['j.mp/22iwfJF', '#SparkBizApps', 'apachespark.devpost.com']}
+q = {"Lenovo Multi-Touch Multi-Hack": ['multitouch.devpost.com', 'j.mp/1QMGD4k', 'Multi-Touch Multi-Hack'], "Ford Smart Journey": ['#FordMxSmartJourney', 'j.mp/1T7uZCi', 'ford smart journey', 'fordsmartjourney.devpost.com'], "GE Predix": ['#IntelligentWorld','intelligentworld.devpost.com', 'j.mp/1SiGFrN'], "Apache Spark Makers Build": ['j.mp/22iwfJF', '#SparkBizApps', 'apachespark.devpost.com'], "OpenShift Code Healthy": ['j.mp/202KkKz', '#CodeHealthy', 'openshift.devpost.com']}
 
 for key in q:
   print "hackathon:", key

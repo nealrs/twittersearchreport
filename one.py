@@ -16,6 +16,7 @@ keywords = ['#FordMxSmartJourney', 'j.mp/1T7uZCi', 'ford smart journey', 'fordsm
 
 
 # jinja stuff
+css = "pdf.css"
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 def toHTML(data, client):
 
@@ -23,9 +24,9 @@ def toHTML(data, client):
     jenv = Environment(loader=FileSystemLoader(THIS_DIR), trim_blocks=True)
     tmpl = jenv.get_template('template.html')
     out = tmpl.render(data=data, client=client)
-    with open(fn+'.html', "wb") as fh:
+    with open('reports/'+fn+'.html', "wb") as fh:
         fh.write(out.encode('utf-8'))
-    pdfkit.from_string(out, fn+'.pdf')
+    pdfkit.from_string(out, 'reports/'+fn+'.pdf', css=css)
 
 try:
     ts = TwitterSearch(
@@ -40,7 +41,7 @@ try:
 
         ts = time.strftime('%m-%d-%y %H:%M', time.strptime(tweet['created_at'],'%a %b %d %H:%M:%S +0000 %Y'))
 
-        print( '[%s] @%s tweeted: %s, http://twitter.com/statuses/%s, RT: %s\n' % ( ts, tweet['user']['screen_name'], tweet['text'], tweet['id'], tweet['retweet_count']) )
+        # print( '[%s] @%s tweeted: %s, http://twitter.com/statuses/%s, RT: %s\n' % ( ts, tweet['user']['screen_name'], tweet['text'], tweet['id'], tweet['retweet_count']) )
 
         data.append({'date': ts, 'text': tweet['text'], 'avatar': tweet['user']['profile_image_url_https'], 'user': tweet['user']['screen_name'], 'id': tweet['id'], 'rt': tweet['retweet_count']})
 
