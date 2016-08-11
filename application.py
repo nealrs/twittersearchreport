@@ -23,11 +23,11 @@ clientlist = [{'slug':'multitouch', 'hackathon':'Lenovo Multi-Touch Multi-Hack'}
 
 keywords = {'multitouch': ['multitouch.devpost.com', 'j.mp/1QMGD4k', 'Multi-Touch Multi-Hack'], 'fordsmartjourney': ['#FordMxSmartJourney', 'j.mp/1T7uZCi', 'ford smart journey', 'fordsmartjourney.devpost.com'], 'intelligentworld': ['#IntelligentWorld','intelligentworld.devpost.com', 'j.mp/1SiGFrN'], 'apachespark': ['j.mp/22iwfJF', '#SparkBizApps', 'apachespark.devpost.com'], 'openshift': ['j.mp/202KkKz', '#CodeHealthy', 'openshift.devpost.com']}
 
-@application.route('/', defaults={'path': ''})
+@application.route('/', defaults={'path': None})
 @application.route('/<path:path>')
 def main(path=None):
-    if path == '':
-        return render_template('index2.html', clients=clientlist)
+    if path is None:
+        return render_template('index.html', clients=clientlist)
     else:
         c = getClient(path)
         k = getKeywords(path)
