@@ -1,0 +1,7 @@
+{
+  "name": "Devpost Social Reports",
+  "description": "Flask app to show clients what we've done on Twitter for the week",
+  "image": "heroku/python",
+  "repository": "https://github.com/challengepost/twittersearchreport",
+  "keywords": ["python", "flask", "mysql", "twitter", "devpost", "challengepost" , "social"]
+}
