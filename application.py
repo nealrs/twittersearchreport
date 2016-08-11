@@ -16,16 +16,23 @@ from sqlalchemy.exc import CompileError
 application = Flask(__name__)
 application.config['PROPAGATE_EXCEPTIONS'] = True
 
+
+#temp variables
+
+clientlist = [{'slug':'multitouch', 'hackathon':'Lenovo Multi-Touch Multi-Hack'}, {'slug':'fordsmartjourney', 'hackathon':'Ford Smart Journey'}, {'slug':'intelligentworld', 'hackathon':'GE Predix'}, {'slug':'apachespark', 'hackathon':'Apache Spark Makers Build'}, {'slug':'openshift', 'hackathon':'OpenShift Code Healthy'}]
+
+keywords = {'multitouch': ['multitouch.devpost.com', 'j.mp/1QMGD4k', 'Multi-Touch Multi-Hack'], 'fordsmartjourney': ['#FordMxSmartJourney', 'j.mp/1T7uZCi', 'ford smart journey', 'fordsmartjourney.devpost.com'], 'intelligentworld': ['#IntelligentWorld','intelligentworld.devpost.com', 'j.mp/1SiGFrN'], 'apachespark': ['j.mp/22iwfJF', '#SparkBizApps', 'apachespark.devpost.com'], 'openshift': ['j.mp/202KkKz', '#CodeHealthy', 'openshift.devpost.com']}
+
 @application.route('/', defaults={'path': ''})
 @application.route('/<path:path>')
 def main(path=None):
-    if (path==''):
-        return render_template('index.html')
+    if path == '':
+        return render_template('index2.html', clients=clientlist)
     else:
-        client = getClient(path)
-        keywords = getKeywords(client)
-        data = getTweets(keywords)
-        return render_template('report.html', client=client, data=data)
+        c = getClient(path)
+        k = getKeywords(path)
+        d = getTweets(k)
+        return render_template('report.html', client=c, data=d)
 
 def getTweets(keywords):
     data=[]
@@ -42,8 +49,6 @@ def getTweets(keywords):
 
             ts = time.strftime('%m-%d-%y %H:%M', time.strptime(tweet['created_at'],'%a %b %d %H:%M:%S +0000 %Y'))
 
-            # print( '[%s] @%s tweeted: %s, http://twitter.com/statuses/%s, RT: %s\n' % ( ts, tweet['user']['screen_name'], tweet['text'], tweet['id'], tweet['retweet_count']) )
-
             data.append({'date': ts, 'text': tweet['text'], 'avatar': tweet['user']['profile_image_url_https'], 'user': tweet['user']['screen_name'], 'id': tweet['id'], 'rt': tweet['retweet_count']})
 
         return(data)
@@ -51,12 +56,17 @@ def getTweets(keywords):
     except TwitterSearchException as e:
         print(e)
 
-def getKeywords(client):
-    keywords = ['#FordMxSmartJourney', 'j.mp/1T7uZCi', 'ford smart journey', 'fordsmartjourney.devpost.com']
+def getKeywords(path):
     ## this should be a db call (nosql?)
-    return keywords
+    kw=[]
+    for k in keywords[path]:
+        #print k
+        kw.append(k)
+    return kw
 
 def getClient(path):
-    client = 'Ford Smart Journey'
-    ## this should be a db call (nosql?)
+    client = None
+    for c in clientlist:
+        if c['slug'] == path:
+            client = c['hackathon']
     return client
