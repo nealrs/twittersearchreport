@@ -6,7 +6,6 @@ from jinja2 import Template, Environment, FileSystemLoader
 from os import environ
 
 from flask import request, session, Flask, render_template, Response, redirect, url_for
-from flask_cors import CORS, cross_origin
 
 from sqlalchemy import *
 from sqlalchemy.exc import IntegrityError
@@ -16,8 +15,7 @@ from sqlalchemy.exc import CompileError
 application = Flask(__name__)
 application.config['PROPAGATE_EXCEPTIONS'] = True
 
-
-#temp variables
+## The "database ~ should really be pulled from somewhere else - like a spreadsheet"
 
 clientlist = [{'slug':'multitouch', 'hackathon':'Lenovo Multi-Touch Multi-Hack'}, {'slug':'fordsmartjourney', 'hackathon':'Ford Smart Journey'}, {'slug':'intelligentworld', 'hackathon':'GE Predix'}, {'slug':'apachespark', 'hackathon':'Apache Spark Makers Build'}, {'slug':'openshift', 'hackathon':'OpenShift Code Healthy'}, {'slug':'code4cabs', 'hackathon':'Ford Code For Taxicabs'}]
 

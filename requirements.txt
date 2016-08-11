@@ -3,6 +3,5 @@ requests==2.11.0
 SQLAlchemy==0.9.4
 MySQL-python==1.2.5
 gunicorn==0.14.2
-flask-cors==2.1.2
 Jinja2==2.8
 TwitterSearch==1.0.1
