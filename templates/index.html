@@ -81,10 +81,10 @@
     <h1>Devpost Twitter Reports</h1>
 
     <h2>Select hackathon:</h2>
-
+    <div>{{payload}}</div>
     <ul>
-      {% for c in clients %}
-        <li><a href="/{{c.slug}}">{{c.hackathon}}</a></li>
+      {% for item in payload %}
+        <li><a href="/{{item.hackathon_slug}}">{{item.hackathon_name}}</a></li>
       {% endfor %}
   </body>
   </html>

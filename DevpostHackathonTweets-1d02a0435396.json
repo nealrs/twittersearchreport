@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "devposthackathontweets",
+  "private_key_id": "1d02a04353966c7d0f48be5dc6780c20177f96bd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDX5YXWpM7ixWxt\njInTnJnXCFW/4saR6LGtYPNag0pycZrJ39WAWiD3KDu2a4QkwfskQLRyD/9wKydm\npuDfnywIq5WmRbmWdU3+z21Og10G61DR8wY1Qddb80ft3LwnvxwxUoZQ8x9/sIkR\n88aNNFjFllExfISlqKY1m2LReo9OYU92KjaJ79+dYkPKyK+zEqlDAc83/iswmfDX\n/Scu84Q92gCoq07IhqRiQK1t3kwNPZU5/oYoSD2BFH71USZWavwIpwkI+GkhxdWd\nteerLzTkh6juZOuxkhnKBfh2q056tmLGHs4pFJvGNcVrsQahPBtjpS0ccPhzBfBd\nF2NmzgEXAgMBAAECggEBAMFMQfF067rD0hmfS8OIIYESeFvuOaVntrUp6Zhvllcy\n+cinPKvHhl5jylrAlramayoBOM4rHqQaLxPMc+gjxjQZFEqjgM+CRYvPweka2k6Y\nn2rqcPN7+Mrd3dfM2zWm+SH75kBR/TDBKWhGX84LQTPfKuDowIblobK7ZdVyKx6b\ngd1IjVeFFNrCUDMVYHOCLn4kgBZsSr/mQCGCz3T7t1BJ6YXNOPTMCwhWLepBIFuO\nxZIsYP8Em2uAVIc4mkKSuzwg5uwTzSukjHQ8ajo3NHI0Lw3H7mGqnqm2U2TbpJdr\nC5p4f5Cfk+E3xcAM07HApLcJtyvjlP+koPi5UtEVT3ECgYEA+c75l3hX3xkr8eWo\nAPxFealM7bjToOOTM/YQd89q0o85nQqeEDcNSYIXdmdragHEuJB1JEu0PJ7tI3La\n/G7/92+hoJmpIdNRaFPcQZm/VuDuiiRHJnF9YyJguZbE1a6mdHjMw6SkwxfbmfK0\nbbuVPOvvntY8fqYcOSeOuLVvnSkCgYEA3T9gxqX6N57DjOxDRxZ1gEJ78KdXmEY5\nf+mYQCfl3b4ishtMNdsDuV1uXGZlktV+gKmmej1W7P4cscmLkxVOhUJjFlSARcBY\nJXjlQ9b6HojjxI+qwYEeQO88X/h0T6RUx/wt7fHC0lRh92Xvl7iPY/AXiT/8D14H\nJjUpZrRaND8CgYEA380YOyWrw8ovXqYbX9ai/543t3owzyFTjefTVSNUVpPOT+1l\nMq2/j62nC4MX7n7rGVcCO6Q/M1hGp82Mdz+SvsEaEmHX7t/9PPR0jakKjPEzhDuA\nKubeKORxt5NlgPLZWdunx1dH7SkAqumP0AeQamYN5UWWKPj0rBfOe5jBCBECgYEA\npQx0q3yCTx/XDbfq8IsmmMoAH6UWyXgJyQyAEcwxxNvkki2fCsYZ3xx+CdwxhfpS\nZrUohiRgRmfDDDYoM08/xlWiCbR8BIzatQmdLqCe8kx4bdgnMDecVCCkT4vPaOJU\nhOPxd4JVLgbZFnAq7mo2Pf2L8U2UQfqJJs2d1wpQCI0CgYANVp6NlE2FPB9AAiLz\nYAMoZ3Fqfrlaw+hi1za5dnOa1xwpV6eAj28b4X0OE7JwOTpTKNZTEwsbtU+SEhCG\nrmTOPWU0MQwSw3JNp2/kaTiAzXauHiK8OSOhvQRmQt6CeMuM6vBQwYU9t8eAgGjC\n6+V2YjNJhy4JWLAGgdqpTv5a3w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "hackathon-manager@devposthackathontweets.iam.gserviceaccount.com",
+  "client_id": "105326323772464143676",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hackathon-manager%40devposthackathontweets.iam.gserviceaccount.com"
+}
