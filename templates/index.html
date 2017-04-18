@@ -3,16 +3,17 @@
   <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="robots" content="noindex">
 
-    <title>Devpost Twitter Report</title>
-    <meta name="description" content="Devpost Twitter Report: {{client}}">
+    <title>Devpost Twitter Reports</title>
+    <meta name="description" content="Devpost Twitter Report Selector">
     <meta name="author" content="Devpost">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <style>
 
@@ -77,23 +78,13 @@
 
   <body>
 
-    <h1>Devpost Twitter Report: {{client}}</h1>
+    <h1>Devpost Twitter Reports</h1>
 
-    {% for tweet in data %}
-
-    	{% if tweet.user != "devpost" %}
-      	<div class="tweet">
-      {% else %}
-        <div class="tweet devpost-tweet">
-  		{% endif %}
-        <p><a href="http://twitter.com/{{tweet.user}}" class="handle">@{{tweet.user}}</a> <span class="divider-dot">&middot;</span> <a href="http://twitter.com/statuses/{{tweet.id}}">{{tweet.date}}</a> <span class="divider-dot">&middot;</span> <i class="fa fa-retweet" aria-hidden="true"></i> {{tweet.rt}}</p>
-        <p>{{tweet.text}}</p>
-      </div>
-    {% endfor %}
-
-
-    <!-- JaVAVAVAVAVa -->
-    <!--<script src="js/scripts.js"></script>-->
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <h2>Select hackathon:</h2>
+    <div>{{payload}}</div>
+    <ul>
+      {% for item in payload %}
+        <li><a href="/{{item.hackathon_slug}}">{{item.hackathon_name}}</a></li>
+      {% endfor %}
   </body>
   </html>
